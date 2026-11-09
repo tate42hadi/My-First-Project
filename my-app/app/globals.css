@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #0f172a;
+}
+
+/* This block handles updating your global variables when .dark is active */
+.dark {
+  --background: #0f172a; /* Dark gray/slate page background */
+  --foreground: #f8fafc; /* Crisp white text color */
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.2s ease, color 0.2s ease; /* Makes theme swap smooth */
+}
